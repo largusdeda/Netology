@@ -29,7 +29,7 @@ int main() {
 	}
 
 	std::cout << "Индекс минимального элемента массива: " << indexMin1 << " " << indexMin2 
-			  << "\nИндекс максимального элемента массива: " << indexMax1 << " " << indexMax2 << std::endl;
+		  << "\nИндекс максимального элемента массива: " << indexMax1 << " " << indexMax2 << std::endl;
 
 	return EXIT_SUCCESS;
 }
