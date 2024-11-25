@@ -9,7 +9,7 @@ int main() {
       std::cout << num;
       isFirst = false;
     }
-    std::cout << ", " << num;
+    else std::cout << ", " << num;
   }
 
 return EXIT_SUCCESS;
