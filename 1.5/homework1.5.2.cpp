@@ -14,8 +14,7 @@ int main() {
       max1 = num;
     }
   }
-  std::cout << "\nМинимальный элемент массива: " << min1 << std::endl
-    << "Максимальный элемент массива: " << max1 << std::endl;
+  std::cout << "\nМинимальный элемент массива: " << min1 << std::endl << "Максимальный элемент массива: " << max1 << std::endl;
 
   return EXIT_SUCCESS;
 }
