@@ -16,7 +16,6 @@ unsigned long long fibonacci(int n) {
 }
 
 int main() {
-	setlocale(LC_ALL, "rus");
 	int n{};
 	std::cout << "Введите число больше нуля: ";
 	std::cin >> n;
