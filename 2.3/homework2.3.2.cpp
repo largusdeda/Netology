@@ -23,7 +23,7 @@ class Counter {
 };
 
 int main() {
-  Counter counter;
+  Counter *c = nullptr;
   std::cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
   std::string answer;
   std::cin >> answer;
@@ -31,7 +31,10 @@ int main() {
     std::cout << "Введите начальное значение счётчика: ";
     int count;
     std::cin >> count;
-    counter = Counter(count);
+    c = new Counter(count);
+  }
+  else {
+    c = new Counter();
   }
 
   char command{};
@@ -40,18 +43,20 @@ int main() {
     std::cin >> command;
     switch (command) {
       case '+':
-        counter.increment();
+        c->increment();
         break;
       case '-':
-        counter.decrement();
+        c->decrement();
         break;
       case '=':
-        std::cout << "Текущее значение счётчика: " << counter.getCount() << std::endl;
+        std::cout << "Текущее значение счётчика: " << c->getCount() << std::endl;
         break;
     }
   } while(command != 'x');
 
   std::cout << "До свидания!";
-  
+
+  delete c;
+
   return EXIT_SUCCESS;
 }
