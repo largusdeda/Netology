@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <new>
 
 class Address {
   private:
@@ -50,17 +51,17 @@ int main() {
     return EXIT_FAILURE;
   }
   fin >> N;
-  
+
   Address *addresses = static_cast<Address*>(operator new[] (N * sizeof(Address)));
-  
+
   for (int i{0}; i < N; i++) {
     fin >> municipality >> street >> houseNumber >> flatNumber;
-    addresses[i] = Address(municipality, street, houseNumber, flatNumber);
+    new (&addresses[i]) Address(municipality, street, houseNumber, flatNumber);
   }
   fin.close();
 
   sort(addresses, N);
-  
+
   std::ofstream fout("out.txt");
   fout << N << std::endl;
   for (int i{0}; i < N; i++) {
