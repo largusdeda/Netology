@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <new>
 
 class Address {
   private:
@@ -42,7 +43,7 @@ int main() {
   
   for (int i{0}; i < N; i++) {
     fin >> municipality >> street >> houseNumber >> flatNumber;
-    addresses[i] = Address(municipality, street, houseNumber, flatNumber);
+    new (&addresses[i]) Address(municipality, street, houseNumber, flatNumber);
     fout << addresses[i].getAddress() << std::endl;
   }
 
