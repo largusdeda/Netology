@@ -1,10 +1,25 @@
 #include <iostream>
 
+//Базовый класс
+class Figure {
+  protected:
+    std::string name = "Фигура";
+  public:
+    virtual std::string get_name() {
+      return name;
+    }
+    virtual std::string get_sides() {
+      return "Фигура не имеет сторон";
+    }
+    virtual std::string get_angles() {
+      return "Фигура не имеет углов";
+    }
+};
+
 //Треугольники
-class Triangle {
+class Triangle : public Figure {
   protected:
     int a, b, c, A, B, C;
-    std::string name = "Треугольник";
   public:
     Triangle(int a, int b, int c, int A, int B, int C) {
       this->a = a;
@@ -13,17 +28,19 @@ class Triangle {
       this->A = A;
       this->B = B;
       this->C = C;
+
+      name = "Треугольник";
     }
 
-    std::string get_name() {
+    std::string get_name() override {
       return name;
     }
-    
-    std::string get_sides() {
+
+    std::string get_sides() override {
       return "a = " + std::to_string(a) + ", b = " + std::to_string(b) + ", c = " + std::to_string(c);
     }
 
-    std::string get_angles() {
+    std::string get_angles() override {
       return "A = " + std::to_string(A) + ", B = " + std::to_string(B) + ", C = " + std::to_string(C);
     }
 };
@@ -71,10 +88,9 @@ class Equilateral_triangle : public Isosceles_triangle {
 };
 
 //Четырёхугольники
-class Quadrangle {
+class Quadrangle : public Figure {
   protected:
     int a, b, c, d, A, B, C, D;
-    std::string name = "Четырёхугольник";
   public:
     Quadrangle(int a, int b, int c, int d, int A, int B, int C, int D) {
       this->a = a;
@@ -85,17 +101,19 @@ class Quadrangle {
       this->B = B;
       this->C = C;
       this->D = D;
+
+      name = "Четырёхугольник";
     }
 
-    std::string get_name() {
+    std::string get_name() override {
       return name;
     }
 
-    std::string get_sides() {
+    std::string get_sides() override {
       return "a = " + std::to_string(a) + ", b = " + std::to_string(b) + ", c = " + std::to_string(c) + ", d = " + std::to_string(d);
     }
 
-    std::string get_angles() {
+    std::string get_angles() override {
       return "A = " + std::to_string(A) + ", B = " + std::to_string(B) + ", C = " + std::to_string(C) + ", D = " + std::to_string(D);
     }
 };
@@ -164,17 +182,10 @@ class Square : public Rectangle {
     }
 };
 
-//Перегрузка функции print_info
-void print_info(Triangle *t) {
-  std::cout << t->get_name() << ": " << std::endl;
-  std::cout << "Стороны: " << t->get_sides() << std::endl;
-  std::cout << "Углы: " << t->get_angles() << std::endl;
-  std::cout << std::endl;
-}
-void print_info(Quadrangle *p) {
-  std::cout << p->get_name() << ": " << std::endl;
-  std::cout << "Стороны: " << p->get_sides() << std::endl;
-  std::cout << "Углы: " << p->get_angles() << std::endl;
+void print_info(Figure *f) {
+  std::cout << f->get_name() << ": " << std::endl;
+  std::cout << "Стороны: " << f->get_sides() << std::endl;
+  std::cout << "Углы: " << f->get_angles() << std::endl;
   std::cout << std::endl;
 }
 
@@ -183,7 +194,7 @@ int main() {
   Right_triangle right_triangle(10, 20, 30, 50, 60);
   Isosceles_triangle isosceles_triangle(10, 20, 50, 60);
   Equilateral_triangle equilateral_triangle(30);
-  
+
   Quadrangle quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
   Parallelogram parallelogram(20, 30, 30, 40);
   Rectangle rectangle(10, 20);
@@ -194,12 +205,12 @@ int main() {
   print_info(&right_triangle);
   print_info(&isosceles_triangle);
   print_info(&equilateral_triangle);
-  
+
   print_info(&quadrangle);
   print_info(&parallelogram);
   print_info(&rectangle);
   print_info(&rhombus);
   print_info(&square);
-  
+
   return EXIT_SUCCESS;
 }
