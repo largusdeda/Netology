@@ -13,7 +13,7 @@ int mult(int x, int y) {
 }
 
 double my_div(int x, int y) {
-	double result = static_cast<double>(x) / static_cast<double>(y);
+	double result = static_cast<double>(x) / y;
 	return result;
 }
 
