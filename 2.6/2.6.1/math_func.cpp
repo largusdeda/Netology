@@ -13,16 +13,15 @@ int mult(int x, int y) {
 }
 
 double my_div(int x, int y) {
-	double result = static_cast<double>(x) / y;
-	return result;
+	return static_cast<double>(x) / y;
 }
 
 double my_pow(int base, int exp) {
+	double result{1};
 	if (base == 1 || exp == 0)
-		return 1;
+		return result;
 
 	int n = exp < 0 ? (-1 * exp) : exp;
-    double result{1};
 	for (int i{0}; i < n; i++) {
 		result *= base;
 	}
