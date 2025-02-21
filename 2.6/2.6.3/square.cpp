@@ -10,5 +10,5 @@ Square::Square(int a) : Rectangle(a, a) {
 	C = 90;
 	D = 90;
 
-	name = "Квадрат";
+	name = "РљРІР°РґСЂР°С‚";
 }
