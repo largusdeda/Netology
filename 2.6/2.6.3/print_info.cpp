@@ -3,7 +3,7 @@
 
 void print_info(Figure *f) {
 	std::cout << f->get_name() << ": " << std::endl;
-	std::cout << "Ñòîğîíû: " << f->get_sides() << std::endl;
-	std::cout << "Óãëû: " << f->get_angles() << std::endl;
+	std::cout << "Ğ¡Ñ‚Ğ¾Ñ€Ğ¾Ğ½Ñ‹: " << f->get_sides() << std::endl;
+	std::cout << "Ğ£Ğ³Ğ»Ñ‹: " << f->get_angles() << std::endl;
 	std::cout << std::endl;
 }
