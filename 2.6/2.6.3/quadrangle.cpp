@@ -10,7 +10,7 @@ Quadrangle::Quadrangle(int a, int b, int c, int d, int A, int B, int C, int D) {
 	this->C = C;
 	this->D = D;
 
-	name = "Четырёхугольник";
+	name = "Р§РµС‚С‹СЂС‘С…СѓРіРѕР»СЊРЅРёРє";
 }
 
 std::string Quadrangle::get_name() {
