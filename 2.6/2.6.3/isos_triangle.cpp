@@ -8,5 +8,5 @@ Isosceles_triangle::Isosceles_triangle(int a, int b, int A, int B) : Triangle(a,
 	this->B = B;
 	C = A;
 
-	name = "Равнобедренный треугольник";
+	name = "Р Р°РІРЅРѕР±РµРґСЂРµРЅРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє";
 }
