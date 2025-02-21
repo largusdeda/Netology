@@ -8,5 +8,5 @@ Equilateral_triangle::Equilateral_triangle(int a) : Isosceles_triangle(a, a, 60,
 	B = 60;
 	C = 60;
 
-	name = "Равносторонний треугольник";
+	name = "Р Р°РІРЅРѕСЃС‚РѕСЂРѕРЅРЅРёР№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє";
 }
