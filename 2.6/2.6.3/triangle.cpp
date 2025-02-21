@@ -8,7 +8,7 @@ Triangle::Triangle(int a, int b, int c, int A, int B, int C) {
 	this->B = B;
 	this->C = C;
 
-	name = "Треугольник";
+	name = "РўСЂРµСѓРіРѕР»СЊРЅРёРє";
 }
 
 std::string Triangle::get_name() {
