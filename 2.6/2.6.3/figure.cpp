@@ -4,8 +4,8 @@ std::string Figure::get_name() {
 	return name;
 }
 std::string Figure::get_sides() {
-	return "Фигура не имеет сторон";
+	return "Р¤РёРіСѓСЂР° РЅРµ РёРјРµРµС‚ СЃС‚РѕСЂРѕРЅ";
 }
 std::string Figure::get_angles() {
-	return "Фигура не имеет углов";
+	return "Р¤РёРіСѓСЂР° РЅРµ РёРјРµРµС‚ СѓРіР»РѕРІ";
 }
