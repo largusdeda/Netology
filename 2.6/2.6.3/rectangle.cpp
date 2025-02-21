@@ -10,5 +10,5 @@ Rectangle::Rectangle(int a, int b) : Parallelogram(a, b, 90, 90) {
 	C = 90;
 	D = 90;
 
-	name = "Прямоугольник";
+	name = "РџСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє";
 }
