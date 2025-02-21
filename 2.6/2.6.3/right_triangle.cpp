@@ -8,5 +8,5 @@ Right_triangle::Right_triangle(int a, int b, int c, int A, int B) : Triangle(a, 
 	this->B = B;
 	C = 90;
 
-	name = "Прямоугольный треугольник";
+	name = "РџСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє";
 }
