@@ -10,5 +10,5 @@ Rhombus::Rhombus(int a, int A, int B) : Parallelogram(a, a, A, B) {
 	C = A;
 	D = B;
 
-	name = "Ромб";
+	name = "Р РѕРјР±";
 }
