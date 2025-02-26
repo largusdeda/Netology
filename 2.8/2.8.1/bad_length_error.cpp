@@ -1,5 +1,5 @@
 #include "bad_length_error.h"
 
 const char* bad_length_error::what() const noexcept {
-	return "Вы ввели слово запретной длины! До свидания";
+	return "Р’С‹ РІРІРµР»Рё СЃР»РѕРІРѕ Р·Р°РїСЂРµС‚РЅРѕР№ РґР»РёРЅС‹! Р”Рѕ СЃРІРёРґР°РЅРёСЏ";
 }
