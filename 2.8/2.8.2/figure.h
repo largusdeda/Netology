@@ -3,7 +3,7 @@
 
 class Figure {
 protected:
-	std::string name = "Ôèãóğà";
+	std::string name = "Ğ¤Ğ¸Ğ³ÑƒÑ€Ğ°";
 public:
 	virtual std::string get_name();
 	virtual std::string get_sides();
