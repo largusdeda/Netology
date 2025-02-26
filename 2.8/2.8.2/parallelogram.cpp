@@ -10,5 +10,5 @@ Parallelogram::Parallelogram(int a, int b, int A, int B) : Quadrangle(a, b, a, b
 	C = A;
 	D = B;
 
-	name = "Параллелограмм";
+	name = "РџР°СЂР°Р»Р»РµР»РѕРіСЂР°РјРј";
 }
