@@ -24,7 +24,3 @@ std::string Triangle::get_sides() {
 std::string Triangle::get_angles() {
 	return "углы: A = " + std::to_string(A) + ", B = " + std::to_string(B) + ", C = " + std::to_string(C);
 }
-
-std::string Triangle::get_angles() {
-	return "óãëû: A = " + std::to_string(A) + ", B = " + std::to_string(B) + ", C = " + std::to_string(C);
-}
