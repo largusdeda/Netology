@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <numeric>
 
@@ -76,7 +76,7 @@ class Fraction {
 		return Fraction(numerator_ / n, denominator_ / n);
 	}
 	std::string Print() {
-		return std::to_string(numerator_) + "/" + std::to_string(denominator_) + "\n";
+		return std::to_string(numerator_) + "/" + std::to_string(denominator_);
 	}
 };
 
@@ -97,22 +97,26 @@ int main() {
 	Fraction f2(numerator, denominator);
 
 	Fraction sum = f1 + f2;
-	std::cout << "f1 + f2 = " << sum.Print() << std::endl;
+	std::cout << f1.Print() << " + " << f2.Print() << " = " << sum.Print() << std::endl;
 
 	Fraction diff = f1 - f2;;
-	std::cout << "f1 - f2 = " << diff.Print() << std::endl;
+	std::cout << f1.Print() << " - " << f2.Print() << " = " << diff.Print() << std::endl;
 
 	Fraction mult = f1 * f2;
-	std::cout << "f1 * f2 = " << mult.Print() << std::endl;
+	std::cout << f1.Print() << " * " << f2.Print() << " = " << mult.Print() << std::endl;
 
 	Fraction div = f1 / f2;
-	std::cout << "f1 / f2 = " << div.Print() << std::endl;
+	std::cout << f1.Print() << " / " << f2.Print() << " = " << div.Print() << std::endl;
 
+	std::cout << "++" << f1.Print() << " * " << f2.Print() << " = ";
 	Fraction preinc_mult = ++f1 * f2;
-	std::cout << "++f1 * f2 = " << preinc_mult.Print() << std::endl;
+	std::cout << preinc_mult.Print() << std::endl;
 	std::cout << "Значение дроби 1 = " << f1.Print() << std::endl;
 
+	std::cout << f1.Print() << "-- * " << f2.Print() << " = ";
 	Fraction postdec_mult = f1-- * f2;
-	std::cout << "f1-- * f2 = " << postdec_mult.Print() << std::endl;
+	std::cout << postdec_mult.Print() << std::endl;
 	std::cout << "Значение дроби 1 = " << f1.Print() << std::endl;
+
+	return EXIT_SUCCESS;
 }
