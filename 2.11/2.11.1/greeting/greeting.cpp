@@ -8,7 +8,7 @@ int main() {
 
 	Greeter::Greeter greeter;
 	std::string name{};
-    std::cout << "Введите имя: ";
+    	std::cout << "Введите имя: ";
 	std::cin >> name;
 	std::cout << greeter.greet(name);
 
