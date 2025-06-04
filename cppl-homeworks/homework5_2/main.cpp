@@ -12,5 +12,12 @@ int main() {
 
 	std::cout << "\nРазмер таблицы: " << test.Size();
 
+	Table<int> t1(2, 3);
+	Table<int> t2(2, 3);
+	t1 = t2;
+
+	Table<double> t3(2, 3);
+	Table<double> t4(t3);
+
 	return EXIT_SUCCESS;
 }
