@@ -1,58 +1,19 @@
 ﻿#include <iostream>
 #include <vector>
 #include <algorithm>
-
-class Sum {
-private:
-	int sum{ 0 };
-public:
-	void operator()(int n) { 
-		if (0 == n % 3) 
-			sum += n; 
-	}
-	
-	int getSum() const {
-		return sum;
-	}
-};
-
-class Count {
-private:
-	int count{ 0 };
-public:
-	void operator()(int n) { 
-		if (0 == n % 3) 
-			count++; 
-	}
-	
-	int getCount() const {
-		return count;
-	}
-};
-
-int get_sum(std::vector<int> &v) {
-	Sum s = std::for_each(v.cbegin(), v.cend(), Sum());
-	return s.getSum();
-}
-
-int get_count(std::vector<int> &v) {
-	Count c = std::for_each(v.cbegin(), v.cend(), Count());
-	return c.getCount();
-}
+#include "Counter.h"
 
 int main() {
-	std::vector<int> vec = { 4, 1, 3, 6, 25, 54 };
+	std::vector<int> numbers = { 4, 1, 3, 6, 25, 54 };
 
 	std::cout << "[IN]: ";
-	for (auto& i : vec)
+	for (auto& i : numbers)
 		std::cout << i << " ";
 	std::cout << std::endl;
 
-	std::cout << "[OUT]: get_sum() = ";
-	std::cout << get_sum(vec) << std::endl;
-
-	std::cout << "[OUT]: get_count() = ";
-	std::cout << get_count(vec) << std::endl;
+	Counter counter = std::for_each(numbers.begin(), numbers.end(), Counter());
+	std::cout << "[OUT]: get_sum() = " << counter.get_sum() << std::endl;
+	std::cout << "[OUT]: get_count() = " << counter.get_count() << std::endl;
 
 	return 0;
 }

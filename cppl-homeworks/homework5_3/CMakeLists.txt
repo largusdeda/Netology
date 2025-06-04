@@ -7,4 +7,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp Counter.h Counter.cpp)
