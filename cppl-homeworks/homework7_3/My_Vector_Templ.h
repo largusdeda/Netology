@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <stdexcept>
+#include <utility>
 
 template<typename T>
 class My_Vector {
@@ -12,16 +13,19 @@ private:
 	int full_capacity{ 0 };
 
 	void resize_up() {
-		int new_capacity = static_cast<int>(full_capacity * 1.5);
-		T *tmp = new T[new_capacity];
-		full_capacity = new_capacity;
+		int new_capacity{};
+		if (full_capacity == 0)
+			new_capacity = default_capacity;
+		else 
+			new_capacity = static_cast<int>(full_capacity * 1.5);
+
+		T* new_ptr = new T[new_capacity];
 		for (int i{ 0 }; i < current_size; i++) {
-			tmp[i] = ptr[i];
+			new_ptr[i] = std::move(ptr[i]);
 		}
-		T *new_ptr = tmp;
-		tmp = ptr;
+		delete[] ptr;
 		ptr = new_ptr;
-		delete[] tmp;
+		full_capacity = new_capacity;
 	}
 
 public:
@@ -46,7 +50,7 @@ public:
 		}
 	}
 
-	My_Vector(My_Vector&& other) {
+	My_Vector(My_Vector&& other) noexcept {
 		ptr = other.ptr;
 		full_capacity = other.full_capacity;
 		current_size = other.current_size;
@@ -74,10 +78,10 @@ public:
 		return *this;
 	}
 
-	My_Vector& operator=(My_Vector&& other) {
+	My_Vector& operator=(My_Vector&& other) noexcept {
 		if (this != &other) {
 			delete[] ptr;
-			ptr = new T[other.full_capacity];
+			ptr = other.ptr;
 			full_capacity = other.full_capacity;
 			current_size = other.current_size;
 
@@ -89,7 +93,7 @@ public:
 	}
 
 	T& at(int index) const {
-		if (index > full_capacity || index < 0)
+		if (index >= full_capacity || index < 0)
 			throw std::out_of_range("Некорректный индекс обращения к элементу вектора\n");
 		return ptr[index];
 	}
