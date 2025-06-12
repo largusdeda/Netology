@@ -9,8 +9,8 @@ class My_Vector {
 private:
 	const int default_capacity{ 10 };
 	T *ptr{ nullptr };
-	int current_size{ 0 };
-	int full_capacity{ 0 };
+	int current_size{ };
+	int full_capacity{ };
 
 	void resize_up() {
 		int new_capacity{};
