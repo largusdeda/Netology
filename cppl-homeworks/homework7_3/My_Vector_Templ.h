@@ -9,8 +9,8 @@ class My_Vector {
 private:
 	const int default_capacity{ 10 };
 	T *ptr{ nullptr };
-	int current_size{ };
-	int full_capacity{ };
+	int current_size{ 0 };
+	int full_capacity{ 0 };
 
 	void resize_up() {
 		int new_capacity{};
@@ -93,7 +93,7 @@ public:
 	}
 
 	T& at(int index) const {
-		if (index >= full_capacity || index < 0)
+		if (index >= current_size || index < 0)
 			throw std::out_of_range("Некорректный индекс обращения к элементу вектора\n");
 		return ptr[index];
 	}
