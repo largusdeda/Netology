@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <stdexcept>
 
 template <typename T>
 class my_uniqueptr {
@@ -9,16 +10,12 @@ public:
 
 	my_uniqueptr<T>(const my_uniqueptr& other) = delete;
 
+	my_uniqueptr<T>& operator=(const my_uniqueptr& other) = delete;
+
 	my_uniqueptr<T>(my_uniqueptr&& other) noexcept {
 		u_ptr = other.u_ptr;
 		other.u_ptr = nullptr;
 	}
-
-	~my_uniqueptr<T>() {
-		u_ptr = nullptr;
-	}
-
-	my_uniqueptr<T>& operator=(const my_uniqueptr& other) = delete;
 
 	my_uniqueptr<T>& operator=(my_uniqueptr&& other) noexcept {
 		if (this != &other) {
@@ -28,7 +25,14 @@ public:
 		return *this;
 	}
 
+	~my_uniqueptr<T>() {
+		delete u_ptr;
+		u_ptr = nullptr;
+	}
+
+
 	T& operator*() const {
+		if (!u_ptr) throw std::runtime_error("Null pointer dereference");
 		return *u_ptr;
 	}
 
