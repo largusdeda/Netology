@@ -1,6 +1,7 @@
 ﻿#include "big_int.h"
 #include <stdexcept>
 #include <string>
+#include <memory>
 #include <iostream>
 
 big_integer::big_integer() {
@@ -47,21 +48,19 @@ big_integer big_integer::operator+(const big_integer& other) {
 	size_t len2{ other.value.length() };
 
 	size_t length{ 1 + std::max(len1, len2) };
-	char* tmp = new char[length + 1];
+	auto res = std::make_unique<char[]>(length + 1);
 
-	tmp[length - 1] = tmp[length] = '\0';
+	res[length - 1] = res[length] = '\0';
 
 	for (size_t i = 0; i < length - 1; i++) {
 		int j = length - 1 - i;
-		tmp[j] += ((i < len2) ? (other.value[len2 - 1 - i] - '0') : 0) + ((i < len1) ? (value[len1 - 1 - i] - '0') : 0);
-		tmp[j - 1] = tmp[j] / 10;
-		tmp[j] = tmp[j] % 10 + '0';
+		res[j] += ((i < len2) ? (other.value[len2 - 1 - i] - '0') : 0) + ((i < len1) ? (value[len1 - 1 - i] - '0') : 0);
+		res[j - 1] = res[j] / 10;
+		res[j] = res[j] % 10 + '0';
 	}
-	tmp[0] += '0';
+	res[0] += '0';
 
-	std::string res(tmp);
-	delete[] tmp;
-	return big_integer(res);
+	return big_integer(res.get());
 }
 
 big_integer big_integer::operator*(const big_integer& other) {
@@ -78,35 +77,30 @@ big_integer big_integer::operator*(const big_integer& other) {
 		return big_integer(std::to_string(res));
 	}
 	else {
-		int* a = new int[length];
-		int* b = new int[length];
+		auto a = std::make_unique<int[]>(length);
+		auto b = std::make_unique<int[]>(length);
 
-		char* tmp = new char[length + 1];
-		tmp[length] = '\0';
+		auto res = std::make_unique<char[]>(length + 1);
+		res[length] = '\0';
 
 		for (size_t i = 0; i < length; i++) {
 			a[i] = (i < len1) ? (value[len1 - 1 - i] - '0') : 0;
 			b[i] = (i < len2) ? (other.value[len2 - 1 - i] - '0') : 0;
-			tmp[i] = 0;
+			res[i] = 0;
 		}
 
 		for (size_t i = 0; i < len1; i++) {
 			for (size_t j = 0; j < len2; j++) {
-				tmp[length - 1 - (i + j)] += a[i] * b[j];
-				tmp[length - 1 - (i + j + 1)] += tmp[length - 1 - (i + j)] / 10;
-				tmp[length - 1 - (i + j)] %= 10;
+				res[length - 1 - (i + j)] += a[i] * b[j];
+				res[length - 1 - (i + j + 1)] += res[length - 1 - (i + j)] / 10;
+				res[length - 1 - (i + j)] %= 10;
 			}
 		}
 
-		delete[] a;
-		delete[] b;
-
 		for (size_t i = 0; i < length; i++)
-			tmp[length - 1 - i] += '0';
+			res[length - 1 - i] += '0';
 
-		std::string res(tmp);
-		delete[] tmp;
-		return big_integer(res);
+		return big_integer(res.get());
 	}
 }
 
