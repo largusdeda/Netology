@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <string>
 #include <memory>
+#include <utility>
 #include <iostream>
 
 big_integer::big_integer() {
