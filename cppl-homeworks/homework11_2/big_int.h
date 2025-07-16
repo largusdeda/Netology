@@ -18,6 +18,7 @@ public:
 
 	big_integer operator+(const big_integer& other);
 	big_integer operator*(const big_integer& other);
+	big_integer operator*(int other);
 
 	friend std::ostream& operator<<(std::ostream& stream, const big_integer& num);
 };

@@ -2,7 +2,6 @@
 #include <stdexcept>
 #include <string>
 #include <memory>
-#include <utility>
 #include <iostream>
 
 big_integer::big_integer() {
@@ -54,7 +53,7 @@ big_integer big_integer::operator+(const big_integer& other) {
 	res[length - 1] = res[length] = '\0';
 
 	for (size_t i = 0; i < length - 1; i++) {
-		int j = length - 1 - i;
+		size_t j = length - 1 - i;
 		res[j] += ((i < len2) ? (other.value[len2 - 1 - i] - '0') : 0) + ((i < len1) ? (value[len1 - 1 - i] - '0') : 0);
 		res[j - 1] = res[j] / 10;
 		res[j] = res[j] % 10 + '0';
@@ -103,6 +102,11 @@ big_integer big_integer::operator*(const big_integer& other) {
 
 		return big_integer(res.get());
 	}
+}
+
+big_integer big_integer::operator*(int other) {
+	auto tmp = big_integer(std::to_string(other));
+	return *this * tmp;
 }
 
 std::ostream& operator<<(std::ostream& stream, const big_integer& num) {
