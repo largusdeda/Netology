@@ -1,0 +1,11 @@
+1
+docker build -f Dockerfile -t hello:16.04 .
+docker run -it --rm hello:16.04
+
+2
+docker build -f Dockerfile -t async_for_each:gcc .
+docker run -it --rm async_for_each:gcc
+
+3
+docker build -f Dockerfile -t async_for_each:clang .
+docker run -it --rm async_for_each:clang
