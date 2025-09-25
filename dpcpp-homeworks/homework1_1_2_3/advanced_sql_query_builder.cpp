@@ -27,7 +27,7 @@ AdvancedSqlSelectQueryBuilder& AdvancedSqlSelectQueryBuilder::addWhereMoreAnd(co
 std::string AdvancedSqlSelectQueryBuilder::BuildQuery() const {
 	std::string prime_query{ SqlSelectQueryBuilder::BuildQuery() };
 	prime_query.pop_back();
-	std::stringstream query{};
+	std::ostringstream query{};
 	query << prime_query;
 
 	bool need_pretext{ true };
