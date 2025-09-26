@@ -7,19 +7,19 @@ AdvancedSqlSelectQueryBuilder& AdvancedSqlSelectQueryBuilder::addWhereLessOr(con
 }
 
 AdvancedSqlSelectQueryBuilder& AdvancedSqlSelectQueryBuilder::addWhereLessAnd(const std::string& field, const std::string& value) {
-	conditions_less_and.insert({ EscapeSql(field), EscapeSql(value) });
+	conditions_less_and.insert( { EscapeSql(field), EscapeSql(value) } );
 
 	return *this;
 }
 
 AdvancedSqlSelectQueryBuilder& AdvancedSqlSelectQueryBuilder::addWhereMoreOr(const std::string& field, const std::string& value) {
-	conditions_more_or.insert({ EscapeSql(field), EscapeSql(value) });
+	conditions_more_or.insert( { EscapeSql(field), EscapeSql(value) } );
 
 	return *this;
 }
 
 AdvancedSqlSelectQueryBuilder& AdvancedSqlSelectQueryBuilder::addWhereMoreAnd(const std::string& field, const std::string& value) {
-	conditions_more_and.insert({ EscapeSql(field), EscapeSql(value) });
+	conditions_more_and.insert( { EscapeSql(field), EscapeSql(value) } );
 
 	return *this;
 }

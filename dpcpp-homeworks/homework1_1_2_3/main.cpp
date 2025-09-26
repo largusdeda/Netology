@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <cassert>
+#include <vector>
+#include <map>
 
 #include "sql_query_builder.h"
 #include "advanced_sql_query_builder.h"

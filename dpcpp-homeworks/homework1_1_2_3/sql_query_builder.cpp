@@ -21,7 +21,7 @@ SqlSelectQueryBuilder& SqlSelectQueryBuilder::AddFrom(const std::string& table) 
 }
 
 SqlSelectQueryBuilder& SqlSelectQueryBuilder::AddWhere(const std::string& field, const std::string& value) {
-	conditions.insert(std::pair( EscapeSql(field), EscapeSql(value) ));
+	conditions.insert( { EscapeSql(field), EscapeSql(value) } );
 
 	return *this;
 }
