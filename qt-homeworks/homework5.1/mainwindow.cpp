@@ -72,9 +72,6 @@ void MainWindow::RcvSignalClear()
 
 void MainWindow::RcvSignalLap()
 {
-    //ui->tb_laps->append("Круг " + QString::number(sw->getCurrentLap()) + ", время: " +
-    //                   QString::number(sw->getCurrentTime() - sw->getStartTime()) + " сек");
-
     ui->tb_laps->append(QString("Круг %1, время: %2 сек").arg(
                             QString::number(sw->getCurrentLap()),
                             QString::number(sw->getCurrentTime() - sw->getStartTime())
@@ -90,3 +87,4 @@ void MainWindow::RcvSignalShowTime()
         sw->setTime(sw->getCurrentTime() + 0.1);
     }
 }
+
