@@ -1,4 +1,0 @@
-D:/Qt homeworks/homework7.1/Drawing-graphs/build-PreGraphic-Desktop_mingw-Debug/CMakeFiles/PreGraphic.dir
-D:/Qt homeworks/homework7.1/Drawing-graphs/build-PreGraphic-Desktop_mingw-Debug/CMakeFiles/edit_cache.dir
-D:/Qt homeworks/homework7.1/Drawing-graphs/build-PreGraphic-Desktop_mingw-Debug/CMakeFiles/rebuild_cache.dir
-D:/Qt homeworks/homework7.1/Drawing-graphs/build-PreGraphic-Desktop_mingw-Debug/CMakeFiles/PreGraphic_autogen.dir
