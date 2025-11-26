@@ -39,8 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
     /*
      * Соединяем сигнал, который передает ответ от БД с методом, который отображает ответ в ПИ
      */
-      connect(dataBase, &::DataBase::sig_SendQueryFromDB, this, &MainWindow::ScreenQueryFromDB);
-      connect(dataBase, &::DataBase::sig_SendTableFromDB, this, &MainWindow::ScreenTableFromDB);
+      connect(dataBase, &DataBase::sig_SendQueryFromDB, this, &MainWindow::ScreenQueryFromDB);
+      connect(dataBase, &DataBase::sig_SendTableFromDB, this, &MainWindow::ScreenTableFromDB);
 
     /*
      *  Сигнал для подключения к БД
@@ -115,7 +115,7 @@ void MainWindow::on_pb_request_clicked()
                   " on c.category_id = fc.category_id WHERE c.name = 'Horror' ";
     }
     else {
-        request = "*";
+        request = "SELECT title, description FROM film";
     }
 
     auto req = [&]{dataBase->RequestToDB(request);};
